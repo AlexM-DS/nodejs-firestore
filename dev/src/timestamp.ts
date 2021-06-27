@@ -288,4 +288,8 @@ export class Timestamp implements firestore.Timestamp {
     const formattedNanoseconds = String(this.nanoseconds).padStart(9, '0');
     return formattedSeconds + '.' + formattedNanoseconds;
   }
+  
+  toJSON(): ReturnType<typeof Date.prototype.toJSON> {
+    return this.toDate().toJSON()
+  }
 }
